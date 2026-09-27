@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>XETZ XERECA — Terms & Privacy</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --bg:        #070707;
+    --bg-card:   #0e0e0e;
+    --bg-soft:   #121212;
+    --border:    #1c1c1c;
+    --border-hi: #262626;
+    --accent:    #ff0a0a;
+    --accent-2:  #ff4040;
+    --text:      #e6e6e6;
+    --text-dim:  #9a9a9a;
+    --text-mute: #5a5a5a;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* subtle animated radial glow behind everything */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(900px 500px at 20% -10%, rgba(255,10,10,0.14), transparent 60%),
+      radial-gradient(700px 400px at 90% 15%,  rgba(255,64,64,0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    display: inline-block;
+    font-family: "Consolas", "SF Mono", Menlo, monospace;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin: 0 0 8px;
+    background: linear-gradient(180deg, #ffffff 0%, #b8b8b8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 22px rgba(255,10,10,0.5));
+    animation: pulseGlow 3.2s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { filter: drop-shadow(0 0 18px rgba(255,10,10,0.35)); }
+    50%      { filter: drop-shadow(0 0 30px rgba(255,10,10,0.65)); }
+  }
+
+  .logo .xereca {
+    background: linear-gradient(180deg, var(--accent-2) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tagline {
+    color: var(--text-dim);
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  /* ── TABS ── */
+  .tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 32px;
+    padding: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    position: sticky;
+    top: 16px;
+    z-index: 10;
+    backdrop-filter: blur(12px);
+  }
+
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 6px;
+    color: var(--text-dim);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.18s ease;
+    border: 1px solid transparent;
+  }
+
+  .tab:hover {
+    color: var(--text);
+    background: var(--bg-soft);
+  }
+
+  .tab.active {
+    color: #fff;
+    background: linear-gradient(180deg, rgba(255,10,10,0.22), rgba(255,10,10,0.08));
+    border-color: rgba(255,10,10,0.45);
+    box-shadow: 0 0 20px rgba(255,10,10,0.2);
+  }
+
+  /* ── CARD ── */
+  section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px 32px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.25s ease;
+  }
+
+  section:hover {
+    border-color: var(--border-hi);
+  }
+
+  section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,10,10,0.6), transparent);
+    opacity: 0.6;
+  }
+
+  section h2 {
+    margin: 0 0 6px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+
+  section .subtitle {
+    color: var(--text-mute);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0 0 28px;
+  }
+
+  h3 {
+    margin: 28px 0 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  h3::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 8px rgba(255,10,10,0.6);
+    flex-shrink: 0;
+  }
+
+  p, li { color: #c4c4c4; margin: 6px 0; }
+
+  ul, ol { padding-left: 22px; margin: 8px 0; }
+
+  li { margin: 4px 0; }
+
+  strong { color: #fff; font-weight: 600; }
+
+  code {
+    background: #1a1a1a;
+    padding: 2px 7px;
+    border-radius: 4px;
+    color: #d5d5d5;
+    font-family: "Consolas", "SF Mono", Menlo, monospace;
+    font-size: 13px;
+  }
+
+  a {
+    color: var(--accent-2);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s ease;
+  }
+
+  a:hover { border-bottom-color: var(--accent-2); }
+
+  /* ── HIGHLIGHT BOX ── */
+  .callout {
+    background: linear-gradient(135deg, rgba(255,10,10,0.10), rgba(255,10,10,0.02));
+    border: 1px solid rgba(255,10,10,0.25);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: #e0e0e0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .callout .ico {
+    font-size: 18px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    color: var(--text-mute);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  footer a { color: var(--text-dim); }
+
+  /* ── BACK TO TOP ── */
+  .top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-hi);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    text-decoration: none;
+    opacity: 0;
+    transition: all 0.25s ease;
+    z-index: 50;
+  }
+
+  .top.show {
+    opacity: 1;
+  }
+
+  .top:hover {
+    color: var(--accent-2);
+    border-color: var(--accent);
+    box-shadow: 0 0 24px rgba(255,10,10,0.4);
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 600px) {
+    .wrap { padding: 24px 16px 60px; }
+    .logo { font-size: 32px; }
+    section { padding: 26px 20px; }
+    .tabs { position: static; }
+    .tab { font-size: 11px; padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <h1 class="logo">XETZ<span class="xereca"> XERECA</span></h1>
+    <p class="tagline">Terms &amp; Privacy</p>
+  </header>
+
+  <nav class="tabs">
+    <a class="tab active" href="#tos">Terms</a>
+    <a class="tab" href="#privacy">Privacy</a>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  TERMS OF SERVICE                                          -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="tos">
+    <h2>Terms of Service</h2>
+    <p class="subtitle">Effective on purchase · Applies to all users</p>
+
+    <p>By purchasing or using any tool, license, or service from XETZ XERECA (the <strong>"Service"</strong>), you agree to the following terms.</p>
+
+    <h3>1. License</h3>
+    <p>All licenses are single-machine and locked to the buyer's hardware identifier (HWID). Sharing, reselling, redistributing, or otherwise transferring any license, key, or tool to a third party is prohibited and will result in a permanent ban without refund.</p>
+
+    <h3>2. No Refunds</h3>
+    <p>All sales are final. Once a license key has been delivered to the buyer, no refunds will be issued for any reason, including but not limited to: change of mind, incompatible hardware, incompatibility with third-party software, or account action taken by the game publisher.</p>
+
+    <h3>3. Chargebacks</h3>
+    <p>Filing a chargeback, payment dispute, or reversal after receiving a license will result in a permanent ban from all XETZ XERECA services and may be reported to relevant payment processors.</p>
+
+    <div class="callout">
+      <span class="ico">⚠️</span>
+      <span>Payment disputes after delivery are treated as fraud and are permanently enforced against.</span>
+    </div>
+
+    <h3>4. Risk Acknowledgement</h3>
+    <p>You understand and accept that using third-party software in conjunction with Free Fire or any online game carries an inherent risk of account suspension, restriction, or permanent ban. XETZ XERECA is not responsible for any consequence resulting from the use of the Service, including account bans, loss of in-game items, or loss of account value.</p>
+
+    <h3>5. Not Affiliated</h3>
+    <p>XETZ XERECA is not affiliated with, endorsed by, sponsored by, or in any way connected to Garena, Free Fire, BlueStacks, MSI, or any related entity. All trademarks referenced are the property of their respective owners.</p>
+
+    <h3>6. Support</h3>
+    <p>Support is provided via Discord tickets on the official XETZ XERECA server. Response time is not guaranteed. Support hours, availability, and scope are at our sole discretion.</p>
+
+    <h3>7. Changes to Terms</h3>
+    <p>These terms may be updated at any time without notice. Continued use of the Service after updates constitutes acceptance of the revised terms.</p>
+
+    <h3>8. Termination</h3>
+    <p>We reserve the right to terminate any license, ban any user, or deny service at our sole discretion, with or without cause, with or without notice.</p>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <!--  PRIVACY POLICY                                            -->
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <section id="privacy">
+    <h2>Privacy Policy</h2>
+    <p class="subtitle">What we collect · Why · How it's handled</p>
+
+    <p>This policy explains what data XETZ XERECA collects, why, and how it is handled.</p>
+
+    <h3>What we collect</h3>
+    <ul>
+      <li><strong>Discord user ID</strong> — used to bind your license to your Discord account.</li>
+      <li><strong>Hardware identifier (HWID)</strong> — used to lock your license to one machine.</li>
+      <li><strong>IP address</strong> — logged on authentication for fraud prevention and abuse detection.</li>
+      <li><strong>Payment proof and payment method reference</strong> — submitted by you in tickets for accounting and dispute resolution. We do not store full payment credentials.</li>
+    </ul>
+
+    <h3>Why we collect it</h3>
+    <p>License binding, fraud prevention, dispute resolution, and accounting. Nothing else. We do not use your data for marketing, analytics, or profiling.</p>
+
+    <h3>How long we keep it</h3>
+    <p>Until your license expires, plus 90 days for accounting and audit purposes. HWID logs are retained for the life of the license.</p>
+
+    <h3>Who we share it with</h3>
+    <p><strong>Nobody.</strong> We do not sell, share, publish, or transfer any user data to third parties. Payment processors (PayPal, M-Pesa) handle payment data directly under their own terms and are not under our control.</p>
+
+    <div class="callout">
+      <span class="ico">🔒</span>
+      <span>Your data never leaves our systems except where required by law or by an active fraud investigation.</span>
+    </div>
+
+    <h3>Deletion requests</h3>
+    <p>You may request deletion of your data by opening a ticket on the official XETZ XERECA Discord server. Verified deletion requests are honored within 7 days, except where retention is required for active fraud investigations or legal compliance.</p>
+
+    <h3>Security</h3>
+    <p>Data is stored on access-controlled systems. We do not guarantee absolute security but take reasonable measures to protect the data we hold.</p>
+
+    <h3>Children</h3>
+    <p>XETZ XERECA is not intended for users under the age of 13. We do not knowingly collect data from children.</p>
+
+    <h3>Contact</h3>
+    <p>All inquiries via Discord ticket on the official XETZ XERECA server.</p>
+  </section>
+
+  <footer>
+    XETZ XERECA · <span id="date">2026</span> · All sales final
+  </footer>
+
+</div>
+
+<a href="#" class="top" id="topBtn" aria-label="Back to top">↑</a>
+
+<script>
+  // Fill current year
+  document.getElementById('date').textContent = new Date().getFullYear();
+
+  // Active tab on scroll + back-to-top visibility
+  const sections = document.querySelectorAll('section');
+  const tabs = document.querySelectorAll('.tab');
+  const topBtn = document.getElementById('topBtn');
+
+  function updateOnScroll() {
+    const y = window.scrollY;
+    let active = 'tos';
+    sections.forEach(s => {
+      if (y + 200 >= s.offsetTop) active = s.id;
+    });
+    tabs.forEach(t => {
+      t.classList.toggle('active', t.getAttribute('href') === '#' + active);
+    });
+
+    topBtn.classList.toggle('show', y > 400);
+  }
+
+  window.addEventListener('scroll', updateOnScroll, { passive: true });
+  updateOnScroll();
+</script>
+</body>
+</html>
